@@ -3,13 +3,14 @@ import { AuthProvider, useAuth } from './contexts/AuthContext'
 import AuthPage from './pages/AuthPage'
 import DashboardPage from './pages/DashboardPage'
 import TasksPage from './pages/TasksPage'
+import KanbanPage from './pages/KanbanPage'
 import CategoriesPage from './pages/CategoriesPage'
 import CalendarPage from './pages/CalendarPage'
 import MyDayPage from './pages/MyDayPage'
 import SettingsPage from './pages/SettingsPage'
 import AppLayout from './components/AppLayout'
 
-type Page = 'dashboard' | 'tasks' | 'calendar' | 'myday' | 'categories' | 'settings'
+type Page = 'dashboard' | 'tasks' | 'kanban' | 'calendar' | 'myday' | 'categories' | 'settings'
 
 function AppInner() {
   const { user, isLoading } = useAuth()
@@ -29,6 +30,7 @@ function AppInner() {
     <AppLayout currentPage={page} onNavigate={setPage}>
       {page === 'dashboard' && <DashboardPage />}
       {page === 'tasks' && <TasksPage />}
+      {page === 'kanban' && <KanbanPage />}
       {page === 'calendar' && <CalendarPage />}
       {page === 'myday' && <MyDayPage />}
       {page === 'categories' && <CategoriesPage />}
